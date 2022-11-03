@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WELCOME TO NAR-TERRGYM</title>
+    <link rel="stylesheet" href="./login.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- jQuery기반의 쿠키 라이브러리 사용하기  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  </head>
+  <body>
+    <script type="module">
+      // ES6문법에 준하는 코드만 작성
+      import AuthService from "../service/auth_service.js";
+      import { firebaseApp } from "../service/firebase.js";
+      const authService = new AuthService();
+      console.log(authService);
+      // 인증에 성공하면 메인 페이지로 이동하기 구현
+      const moveMain = () => {
+        window.location.href = "../main/membermain.html";
+      };
+      $("#btnGoogle").click(function () {
+        authService.login("Google").then((snapshot) => {
+          //console.log(JSON.stringify(snapshot))
+          const imsi = JSON.stringify(snapshot); //문자열로 변환
+          const jsonDoc = JSON.parse(imsi);
+          const displayName = jsonDoc.user.displayName;
+          console.log(displayName);
+          if (displayName) {
+            $.cookie("c_name", displayName);
+          }
+          window.location.href = "../main/membermain.html";
+        });
+      }); // end of google 로그인 처리
+      $("#btnGithub").click(function () {
+        authService.login("Github").then((snapshot) => {
+          //console.log(JSON.stringify(snapshot))
+          const imsi = JSON.stringify(snapshot); //문자열로 변환
+          console.log("imsi : " + imsi);
+          const jsonDoc = JSON.parse(imsi);
+          const uid = jsonDoc.user.uid;
+          console.log(uid);
+          if (uid) {
+            $.cookie("c_name", uid);
+            window.location.href = "../main/membermain.html";
+          }
+        });
+      }); // end of google 로그인 처리
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("#loginForm").modal("show");
+      });
+    </script>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="loginForm"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">
+              Nar-TerrGYM LOGIN
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <button class="login btn_google" id="btnGoogle">
+              <i class="icon icon-google"></i>Google
+            </button>
+            <!-- 8 -->
+            <button class="login btn_github" id="btnGithub">
+              <i class="icon icon-github"></i>Github
+            </button>
+          </div>
+          <div class="modal-footer">No pain, no gain</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

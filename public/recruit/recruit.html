@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./recruit.css" />
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap" rel="stylesheet"/>
+    <title>Na--terrgym</title>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+    <script src="./recruit.js" defer></script>
+  </head>
+
+
+  <body>    
+    <!-- 화면 구현! 화면전체 감싸는 class="wrap" -->
+    <div class="wrap">
+      <!--  헤더부분 (메뉴) -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black" style="margin: 0px; padding: 0px;">
+          <div class="container-fluid" >
+            <!-- 로고부분입니다  -->
+            <a href="../main/main.html">
+              <img class="logo" src="../images/logo.jpg" alt="로고" width="100px" height="100px">
+            </a>          
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+              <ul class="navbar-nav me-auto">
+                <!-- 아래부터 어바웃버튼입니다. -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >ABOUT</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="../about/intro.html">센터소개</a>
+                      <a class="dropdown-item" href="../about/notice.html">공지사항</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="../about/event.html">이벤트</a>
+                      <a class="dropdown-item" href="../about/map.html">오시는길</a>
+                      <a class="dropdown-item" href="../about/agreement.html">주변정보</a>
+                    </div>
+                </li>   
+              <!-- 아래부터 프로그램버튼입니다. -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">PROGRAM</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../program/pt.html">PT</a>
+                    <a class="dropdown-item" href="../program/pila.html">요가&필라테스</a>
+                    <a class="dropdown-item" href="../program/gx.html">GX</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../program/timetable.html">시간표</a>
+                  </div>
+                </li>      
+                <!-- 아래부터 콘택트버튼입니다. -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CONTACT</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../contact/ques.html">문의게시판</a>
+                    <a class="dropdown-item" href="../contact/review.html">후기게시판</a>
+                  </div>
+                </li>       
+                <!-- 아래부터 리크루트 버튼입니다. -->
+                <li class="nav-item">
+                  <a class="nav-link" href="../recruit/recruit.html" style="color: gold;">RECRUIT</a>
+                </li>
+              </ul>
+            </div>
+            <!-- 메뉴구현 끝입니다. -->
+                          
+            <!-- 로그인/ 회원가입 버튼 부분입니다. -->
+            <ul>
+              <a class="btn btn-warning" href="../login/login.html" role="button">로그인</a>
+              <a class="btn btn-warning" href="../login/register.html" role="button">회원가입</a>
+            </ul>
+      </nav>
+      <!-- 네비게이션바 종료입니다. -->
+    </header>
+  <!-- 헤더부분 종료입니다. -->
+
+    <!-- 내용들어갈 부분입니다!!!!  -->
+    <section class="mainsection">
+      <!-- 입사지원안내문 클래스 container 영역 -->
+      <div class="container">
+        <section class="title">
+          <h5 style ="text-align: center; letter-spacing: 6px;">RECRUIT </h5>
+          <hr style="border-top-width:thick; border-color	:#FFD700;" >
+          <p style="text-align: center;">Na TerrGYM과 함께 할 인재를 기다립니다.</p>
+        </section>
+        <section class="content">
+          ❖ 채용 포지션 | <br>
+          <!-- 채용 포지션 테이블 시작 -->
+          <div class="table-responsive">
+            <table class="_table_responsive tableHorizontal tableStrong table" style="width : 100%">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 33.3333%; background-color  : 	#FFD700;">
+                    <div style ="text-align: center;">
+                      <strong>모집 지점</strong>
+                    </div>
+                  </th>
+                  <th scope="col" style="width: 33.3333%; background-color  : 	#FFD700;">
+                    <div style ="text-align: center;">
+                      <strong>모집 파트</strong>
+                      </div>
+                  </th>
+                  <th scope="col"style="width: 33.3333%; background-color  : 	#FFD700;">
+                    <div style ="text-align: center;">
+                      <strong>복지 혜택</strong>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+            
+              <tbody>
+              <tr>
+                <td rowspan="4" style="width:33.452%; background-color: beige; text-align: center;">
+                  <span> 전 지점</span>
+                </td>
+                <td style="width : 33.2147%; background-color: beige; text-align: center;">
+                  <span>퍼스널 트레이닝</span>
+                </td>
+                <td rowspan="4" style="width:33.3333%; background-color: beige;">
+                  <span>
+                    <strong> 공통</strong>
+                    <br>
+                    "국민연금, 건강보험, 고용보험, 산재보험" <br>
+                    "퇴직연금 보험제공" <br>
+                    "장기근속자포상, 경조사비 지원"<br>
+                    "건강검진, 지점내 커피/음료 이용"<br><br>
+                    <strong>별도</strong>
+                    <br>
+                    "인센티브 제도"
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 33.2147%; background-color: beige; text-align: center;">
+                  <span>필라테스& 요가</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 33.2147%; background-color: beige; text-align: center;">
+                  <span>G . X</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 33.2147%; background-color: beige; text-align: center;">
+                  <span>피트니스 카운슬러 (F.C) </span>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+          <!-- 채용포지션 테이블 끝 -->
+          ❖ 채용 절차 | 서류 전형 ▷ 면접전형 ▷ 최종합격<br>
+          ❖ 채용 기간 | 상시 모집<br>
+          ❖ 지원 방법 | 이력서, 자기소개서, 자격증 사본 파일 업로드<br>
+          ❖ 합격 안내 | 접수된 내용 확인 후, 담당자가 개별 연락드립니다.<br>
+
+        </section>
+      </div>
+      <!--  입사지원안내문 안내 클래스 끝 -->
+
+
+      <!-- 입사지원 입력 폼 클래스 시작-->
+      <div class="container">
+        <section class="title">
+        <h5 style="text-align:center; letter-spacing : 6px"> 입사지원</h5>
+        <hr style="border-top-width:thick; border-color:	#FFD700;" >
+        </section>
+        
+              <!-- 테이블 시작입니다.-->
+      <div class="recruit_list">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 20%; background-color  : 	#FFD700; text-align: center;">NO</th>
+              <th scope="col" style="width: 40%; background-color  : 	#FFD700; text-align: center;">이름</th>
+              <th scope="col"style="width: 40%; background-color  : 	#FFD700; text-align :center">작성일</th>
+            </tr>
+          </thead>
+          <tbody class="recruit-content" style="background-color: beige; text-align: center;"></tbody>
+        </table>
+      </div>
+      <a href="#" class="btn btn-warning" id="write" style="float:right;"> 글쓰기 </a>
+      <br><br><br><br><br><br><br><br><br>
+      </div> <!-- div container 끝 -->
+    </section> <!-- mainsection 끝  -->
+    
+      <!-- footer 시작입니다.  -->
+      <div class = "footer text-warning bg-black text-center" >
+      NA TERRGYM COMPANY<br />
+      ⓒ 2013 Na TerrGym Company<br />
+      [NA TerrGym 강남점] Tel. 02-2566-1111 | 서울시 강남구 테헤란로 14길 6
+      남도빌딩<br />
+      [NA TerrGym 강북점] Tel. 02-2566-2222 | 서울시 남대문로 120 대일빌딩
+      2층,3층
+      </div>
+      <!-- footer 끝  -->
+    </div>
+    <!-- 내용감싸는 wrqp 끝  -->
+    <!-- 화면 끝-->
+    
+  </body>
+</html>
+  

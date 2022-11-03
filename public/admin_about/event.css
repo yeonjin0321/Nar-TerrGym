@@ -1,0 +1,130 @@
+.logo {
+  width: auto;
+}
+
+.navbar {
+  z-index: 1; /* 네비게이션바가 가장 위에 위치하여 배경뒤에 묻히지 않고 위에서열리게 */
+}
+
+/* 드롭박스 3개 */
+.nav-item.dropdown {
+  display: flex;
+  justify-content: space-between; /* 스페이스 공간 주는 역할*/
+  align-items: center; /* logo center */
+  padding: 10px 30px; /* 너무 붙어있어서 패딩으로 살짝 띄워줌*/
+  margin: 0px;
+}
+
+.nav-link.dropdown-toggle {
+  color: gold;
+}
+
+/* 리크루터 메뉴 */
+.nav-item {
+  display: flex;
+  justify-content: space-between; /* 스페이스 공간 주는 역할*/
+  align-items: center; /* logo center */
+  padding: 0px 30px; /* 너무 붙어있어서 패딩으로 살짝 띄워줌*/
+  margin: 0px;
+}
+
+​ .page-header {
+  padding: 20px 0px;
+}
+​ .board-list {
+  margin: 20px 0px;
+}
+
+.modal-title {
+  color: black;
+  background-color: gold;
+  margin: 4px;
+  padding: 6px 12px;
+}
+
+.content {
+  border: 3px solid black;
+  background-color: blanchedalmond;
+}
+
+section {
+  position: static;
+}
+
+/* 슬라이더 css */
+
+li {
+  list-style: none;
+}
+.clearfix {
+  overflow: auto;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.clear {
+  clear: both;
+}
+.gallery {
+  width: 900px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  padding-left: 0;
+}
+.gallery ul {
+  width: 300%;
+  position: relative;
+  left: -300px;
+}
+.gallery ul li {
+  float: left;
+  width: 300px;
+  height: 180px;
+  box-sizing: border-box;
+  padding: 15px;
+  text-align: center;
+  line-height: 150px;
+}
+.gallery ul li .img {
+  border: 3px solid #ccc;
+}
+
+.img1 {
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+}
+.g_item {
+  width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.g_item ul li {
+  display: inline-block;
+  margin-right: 10px;
+  background: #ccc;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.g_item ul li.on {
+  background: #f00;
+}
+
+/* footer 하단 고정 [S] */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+  text-align: center;
+  font-size: 6px;
+  color: blanchedalmond;
+  background: black;
+}
+
+/* footer 하단 고정 [E] */

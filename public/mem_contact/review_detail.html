@@ -1,0 +1,212 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./review.css" />
+        
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+        crossorigin="anonymous"
+        />
+        <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"
+        ></script>
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+        ></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap" rel="stylesheet"/>
+        <title>Na--terrgym</title>
+    </head>
+    <body>
+        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+        <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDpbDj9hxz7rpZGLl-SY95w6U3xpfpP7io",
+        authDomain: "nar--terrgym.firebaseapp.com",
+        databaseURL: "https://nar--terrgym-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "nar--terrgym",
+        storageBucket: "nar--terrgym.appspot.com",
+        messagingSenderId: "32281889534",
+        appId: "1:32281889534:web:f29fa1da8d794c01a7b3af"
+        };
+        firebase.initializeApp(firebaseConfig)
+    </script>
+        <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black" style="margin: 0px; padding: 0px;">
+            <div class="container-fluid" >
+                <!-- 로고부분입니다  -->
+                <a href="../main/main.html">
+                <img class="logo" src="../images/logo.jpg" alt="로고" width="100px" height="100px">
+                </a>          
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <!-- 아래부터 어바웃버튼입니다. -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >ABOUT</a>
+                        <div class="dropdown-menu">
+                        <a class="dropdown-item" href="../about/intro.html">센터소개</a>
+                        <a class="dropdown-item" href="../about/notice.html">공지사항</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="../about/event.html">이벤트</a>
+                        <a class="dropdown-item" href="../about/map.html">오시는길</a>
+                        <a class="dropdown-item" href="../about/agreement.html">주변정보</a>
+                        </div>
+                    </li>   
+                <!-- 아래부터 프로그램버튼입니다. -->
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">PROGRAM</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="../program/pt.html">PT</a>
+                        <a class="dropdown-item" href="../program/pila.html">요가&필라테스</a>
+                        <a class="dropdown-item" href="../program/gx.html">GX</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="../program/timetable.html">시간표</a>
+                    </div>
+                    </li>      
+                    <!-- 아래부터 콘택트버튼입니다. -->
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CONTACT</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="../contact/ques.html">문의게시판</a>
+                        <a class="dropdown-item" href="../contact/review.html">후기게시판</a>
+                    </div>
+                    </li>       
+                    <!-- 아래부터 리크루트 버튼입니다. -->
+                    <li class="nav-item">
+                    <a class="nav-link" href="../recruit/recruit.html" style="color: gold;">RECRUIT</a>
+                    </li>
+                </ul>
+                </div>
+                <!-- 메뉴구현 끝입니다. -->
+                            
+              <!-- 로그인/ 회원가입 버튼 부분입니다. -->
+            <ul>
+                <span id="displayName" style="color: white;">displayName</span>
+                
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary">마이페이지</button>
+                  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./inbody.html">나의 인바디</a></li>
+                    <li><a class="dropdown-item" href="./mypage.html">계정 조회</a></li>
+                    <li><a class="dropdown-item" href="./membership.html">회원권 조회</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="../mem_contact/review.html">후기 조회</a></li>
+   
+                  </ul>
+                </div>
+                <a class="btn btn-warning" id="member-logout" href="#" role="button">로그아웃</a> 
+              </ul>
+        </nav>
+        <!-- 네비게이션바 종료입니다. -->
+        </header>
+    <!-- 헤더부분 종료입니다. -->
+        <!-- 내용들어갈 부분입니다!!!!  -->
+        <section>
+        
+        <main class="review">
+            <section class="review_table">
+            <div class="container">
+                <section class="title">
+                <br><br>
+                <h2> REVIEW </h2>
+                <hr class = "line">
+    <section class ="center">
+                <div class="writer">
+                <div class="board_view_wrap">
+            <div class="board_view">
+                <div class="titles">
+                    
+                </div>
+                <div class="info">
+                    <!-- <dl>
+                        <dt>번호</dt>
+                        <dd class = p_no>1</dd>
+                    </dl> -->
+                    <dl>
+                        <dt>작성자</dt>
+                        <dd class = p_name></dd>
+                    </dl>
+                    <dl>
+                        <dt>작성일</dt>
+                        <dd class =p_date></dd>
+                    </dl>
+                </div>
+                <div class="cont"></div>
+            </div>
+            <button type="button" class="btn btn-warning" style=" float: right; " onClick="location.href='./review.html'">이전으로</button>
+            <button type="button" class="btn btn-warning" style=" float: right; margin-right: 10px;" id="edit">수정</button>
+            <button type="button" class="btn btn-warning" style=" float: right; margin-right: 10px;" id="delete">삭제</button>
+            </section>
+        </main>
+</section>
+    <!-- 파이어베이스에서 db가져오기 -->
+    <script>
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+    let qs = new URLSearchParams(window.location.search); //오브젝트로 바꿔줌
+    //오브젝트로 가져온 쿼리스트링의 id 부분을 찾아준다
+    db.collection('reviewlist').doc(qs.get('id')).get().then((result)=>{
+        console.log(result.data());
+    
+        /* 가져오기 */
+        // const p_no   = result.data().번호;
+        const titles = result.data().제목;
+        const p_name = result.data().작성자;
+        const p_date = result.data().작성일;
+        const cont = result.data().내용;
+            // $(".p_no").text(p_no);
+            $(".titles").text(titles);
+            $(".p_name").text(p_name);
+            $(".p_date").text(p_date);
+            $(".cont").text(cont);
+            $("#edit").click(function(){
+            window.location.href='./review_edit.html?id='+ qs.get('id') 
+            
+        })
+            
+            
+            /* 삭제하기 */
+            $('#delete').click(function(){
+                db.collection('reviewlist').doc(qs.get('id')).delete().then((result) => { //delete 삭제해준다.
+                    console.log(result);
+                    window.location.href="./review.html"; //잘되면 리뷰홈 가즈아~~~
+                }).catch((err)=>{
+                    console.log(err);
+                })
+                /* 삭제하기 */
+                
+        })
+    })
+    
+    </script>
+    <!-- footer 시작입니다.  -->
+        <footer class="card-footer text-warning text-left bg-black">
+        NA TERRGYM COMPANY<br />
+        ⓒ 2013 Na TerrGym Company<br />
+        [NA TerrGym 강남점] Tel. 02-2566-1111 | 서울시 강남구 테헤란로 14길 6
+        남도빌딩<br />
+        [NA TerrGym 강북점] Tel. 02-2566-2222 | 서울시 남대문로 120 대일빌딩
+        2층,3층
+        </footer>
+    </body>
+    </html>

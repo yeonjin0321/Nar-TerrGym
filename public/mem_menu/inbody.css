@@ -1,0 +1,189 @@
+.logo {
+  width: auto;
+}
+
+.navbar {
+  z-index: 1; /* 네비게이션바가 가장 위에 위치하여 배경뒤에 묻히지 않고 위에서열리게 */
+}
+
+/* 드롭박스 3개 */
+.nav-item.dropdown {
+  display: flex;
+  justify-content: space-between; /* 스페이스 공간 주는 역할*/
+  align-items: center; /* logo center */
+  padding: 10px 30px; /* 너무 붙어있어서 패딩으로 살짝 띄워줌*/
+  margin: 0px;
+}
+
+.nav-link.dropdown-toggle {
+  color: gold;
+}
+
+/* 리크루터 메뉴 */
+.nav-item {
+  display: flex;
+  justify-content: space-between; /* 스페이스 공간 주는 역할*/
+  align-items: center; /* logo center */
+  padding: 0px 30px; /* 너무 붙어있어서 패딩으로 살짝 띄워줌*/
+  margin: 0px;
+}
+
+section {
+  position: static;
+  overflow: auto;
+}
+
+h2 {
+  text-align: center;
+  letter-spacing: 6px;
+}
+
+.line {
+  border-top-width: thick;
+  border-color: gold;
+}
+
+h5 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+/* detail */
+
+.board_view .titles {
+  padding: 10px 10px;
+  border-bottom: 1px dashed gold;
+  font-size: 20px;
+}
+
+.board_view .info {
+  padding: 5px;
+  border-bottom: 1px solid goldenrod;
+  font-size: 0;
+}
+
+.board_view .info dl {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.board_view .info dl:first-child {
+  padding-left: 0;
+}
+
+.board_view .info dl::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 0;
+  display: block;
+  width: 1px;
+  height: 13px;
+  background: #ddd;
+}
+
+.board_view .info dl:first-child::before {
+  display: none;
+}
+
+.board_view .info dl dt,
+.board_view .info dl dd {
+  display: inline-block;
+  font-size: 15px;
+}
+
+.board_view .info dl dd {
+  margin-left: 20px;
+  color: gray;
+}
+
+.board_view .cont {
+  padding: 15px;
+  border-bottom: 1px solid gold;
+  line-height: 140%;
+  font-size: 20px;
+}
+
+/* detail */
+
+/* 이미지 css 확대  */
+
+/* 이미지 css 확대  */
+
+/* 개인설정  */
+
+.product {
+  display: flex;
+  padding: 10px;
+}
+.thumbnail {
+  max-width: 250px;
+  max-height: 500px;
+  width: 100%;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+.product .height {
+  font-size: 16px;
+  font-weight: 600;
+}
+.product .weight {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.product .date {
+  color: grey;
+  font-size: 20px;
+}
+
+.detail-pic {
+  width: 830px;
+  height: 1170px;
+  background-size: cover;
+  background-position: center;
+}
+
+.image-box {
+  display: flex;
+  justify-content: center;
+}
+
+/* .detail-pic {
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-size: cover;
+  background-position: center;
+} */
+
+/* .detail-pic {
+  width: 830px;
+  height: 1170px;
+  background-size: cover;
+  background-position: center;
+} */
+
+/* 이미지 css */
+
+/* footer 하단 고정 [S] */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+  text-align: center;
+  font-size: 6px;
+  color: blanchedalmond;
+  background: black;
+}
+
+/* footer 하단 고정 [E] */

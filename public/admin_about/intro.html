@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <link rel="stylesheet" href="./intro.css">  
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <title>WELCOME TO NAR-TERRGYM</title>
+  </head>
+
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+    <script>
+         const firebaseConfig = {
+          apiKey: "AIzaSyDpbDj9hxz7rpZGLl-SY95w6U3xpfpP7io",
+authDomain: "nar--terrgym.firebaseapp.com",
+databaseURL: "https://nar--terrgym-default-rtdb.asia-southeast1.firebasedatabase.app",
+projectId: "nar--terrgym",
+storageBucket: "nar--terrgym.appspot.com",
+messagingSenderId: "32281889534",
+appId: "1:32281889534:web:f29fa1da8d794c01a7b3af"
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script>
+      //Database에서 데이터 가져오기
+      const db = firebase.firestore();
+      let num = 0;
+      db.collection("event")
+        .get()
+        .then((snapshot) => {
+          snapshot.forEach((item) => {
+            // console.log(doc.data(item));
+            //코드양은 늘어나더라도 dom tree 구조는 잘 보임 복잡도 증가하지 않도록.
+            const template = `
+             <tr>
+              <th scope="row">${++num}</th>
+              <td><a href="./event-read.html?id=${
+                item.id
+              }"class="btn btn-warning" data-bs-toggle="modal">${
+              item.data().제목
+            }</a></td>
+              <td>${item.data().작성자}</td>
+              <td>${item.data().작성일}</td>
+            </tr>
+            `;
+            $(".board-content").append(template); //제이쿼리로 콘텐츠 밑에 붙임
+          });
+        });
+    </script>
+
+    <header>
+      <!-- 네비게이션바 시작입니다. -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black" style="margin: 0px; padding: 0px;">
+          <div class="container-fluid" >
+            <!-- 로고부분입니다  -->
+            <a href="../main/adminmain.html">
+              <img class="logo" src="../images/logo.jpg" alt="로고" width="100px" height="100px">
+            </a>          
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+              <ul class="navbar-nav me-auto">
+                <!-- 아래부터 어바웃버튼입니다. -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >ABOUT</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="../admin_about/intro.html">센터소개</a>
+                      <a class="dropdown-item" href="../admin_about/notice.html">공지사항</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="../admin_about/event.html">이벤트</a>
+                      <a class="dropdown-item" href="../admin_about/map.html">오시는길</a>
+                      <a class="dropdown-item" href="../admin_about/agreement.html">주변정보</a>
+                    </div>
+                </li>   
+              <!-- 아래부터 프로그램버튼입니다. -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">PROGRAM</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../admin_program/pt.html">PT</a>
+                    <a class="dropdown-item" href="../admin_program/pila.html">요가&필라테스</a>
+                    <a class="dropdown-item" href="../admin_program/spinning.html">스피닝</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../admin_program/timetable.html">시간표</a>
+                  </div>
+                </li>      
+                <!-- 아래부터 콘택트버튼입니다. -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CONTACT</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../admin_contact/ques_table.html">문의게시판</a>
+                    <a class="dropdown-item" href="../admin_contact/review.html">후기게시판</a>
+                  </div>
+                </li>       
+                <!-- 아래부터 리크루트 버튼입니다. -->
+                <li class="nav-item">
+                  <a class="nav-link" href="../admin_recruit/recruit.html" style="color: gold;">RECRUIT</a>
+                </li>
+              </ul>
+            </div>
+            <!-- 메뉴구현 끝입니다. -->
+                          
+            <!-- 로그인/ 회원가입 버튼 부분입니다. -->
+            <ul>
+              <span id="displayName" style="color: white;">displayName</span>
+              
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary">관리자페이지</button>
+                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../admin_menu/member.html">회원 관리</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../admin_menu/trainerpage.html">강사 관리</a></li>
+                  <li><a class="dropdown-item" href="../admin_menu/memberplus.html">회원 등록</a></li>
+
+                </ul>
+              </div>
+              <a class="btn btn-warning" id="member-logout" href="#" role="button">로그아웃</a> 
+            </ul>
+      </nav>
+      <!-- 네비게이션바 종료입니다. -->
+    </header>
+  <!-- 헤더부분 종료입니다. -->
+<h3>센터소개</h3>
+    <!-- 내용들어갈 부분입니다!!!!  -->
+    <section>
+    <div class="container-fluid text-center">
+      <div class="row content">
+        <div class="col-sm-2 sidenav"></div>
+        <div class="col-sm-8 text-left">
+        </br>
+          <h1>Nar-terrGym</h1>
+          <hr />
+          <p>
+            젊은 인재들이 모여 새로운 발상으로 피트니스계를 이끌어 갑니다.</br>
+          </br>
+            Nar-terrGym의 강북/강남지점은 </br>
+            깨끗한 환경의 인테리어와 시설, 최상의 서비스 </br>
+            그리고 체계적인 시스템을 도입하여 운영되고 있으며 </br>
+            도태되지 않는 피트니스 기업으로 성장 중에 있습니다. 
+          </br>
+          저희의 운동 프로그램은 바쁜 현대인의 라이프 스타일을 고려하여 </br>
+          투자한 시간만큼 그 이상의재미와 스트레스 해소 등</br>
+           내 몸과 마음의 건강 효과를 극대화 시킵니다.</br>
+            보다 안정된 시스템으로 좋은 환경을 제공하기 위해 노력하며</br>
+             향후 피트니스 및 헬스케어 시장을 선도하는</br>
+             스포츠 기업이 되도록 노력하겠습니다. </br>
+            </br>
+             Nar-TerrGYM Company Co., Ltd. 임원진 일동
+          </p>
+          <hr />
+        </div>
+      </section>
+<!-- 센터소개 내용 끝입니다 -->
+​
+​
+​
+<!-- 지점 사진 섹션 시작입니다. -->
+<section class="intro_slider">
+  <h3>센터사진</h3>
+<div id="sliderWrap" >
+  <ul id="slider">
+    <li>
+      <img src="../images/gym1.jpg" alt="슬라이드1" style="width: 800px" height="300px">
+    </li>
+    <li>
+      <img src="../images/gym2.jpg" alt="슬라이드2" style="width: 800px" height="300px">
+    </li>
+    <li>
+      <img src="../images/gym3.jpg" alt="슬라이드3" style="width: 800px" height="300px">
+    </li>
+  </ul>
+</div>
+<!-- 강사소개들어갈 부분입니다!!!!  -->
+<h3>강사소개</h3>
+<section>
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav"></div>
+      <div class="col-sm-8 text-left">
+          <hr />
+        </br>
+          <h1>Nar-terrGym의 강사들</h1>
+          <hr />
+     <div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <img src="https://i.ibb.co/r4q2cy7/w1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Bellissa / 대표</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="https://i.ibb.co/j6P9WSs/w2.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Dasiy / 트레이너</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+    <br>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="https://i.ibb.co/NTwqhMy/w3.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Andew / 트레이너 </h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="https://i.ibb.co/4WHky2q/w4.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Andew / 트레이너</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+      </section>
+      <br><br>
+</section>
+<!-- footer 시작입니다.  -->
+    <footer class="card-footer text-warning text-left bg-black">
+      NA TERRGYM COMPANY<br />
+      ⓒ 2013 Na TerrGym Company<br />
+      [NA TerrGym 강남점] Tel. 02-2566-1111 | 서울시 강남구 테헤란로 14길 6
+      남도빌딩<br />
+      [NA TerrGym 강북점] Tel. 02-2566-2222 | 서울시 남대문로 120 대일빌딩
+      2층,3층
+    </footer>
+    <script src="./intro.js"></script>
+  </body>
+</html>
+  

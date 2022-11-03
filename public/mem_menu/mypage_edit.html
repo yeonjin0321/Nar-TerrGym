@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./menu.css" />
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap" rel="stylesheet"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <title>Na--terrgym</title>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+    <script>
+      const firebaseConfig = {
+  apiKey: "AIzaSyDpbDj9hxz7rpZGLl-SY95w6U3xpfpP7io",
+  authDomain: "nar--terrgym.firebaseapp.com",
+  databaseURL: "https://nar--terrgym-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "nar--terrgym",
+  storageBucket: "nar--terrgym.appspot.com",
+  messagingSenderId: "32281889534",
+  appId: "1:32281889534:web:f29fa1da8d794c01a7b3af"
+};
+firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black" style="margin: 0px; padding: 0px;">
+          <div class="container-fluid" >
+            <!-- 로고부분입니다  -->
+            <a href="../main/membermain.html">
+              <img class="logo" src="../images/logo.jpg" alt="로고" width="100px" height="100px">
+            </a>          
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+              <ul class="navbar-nav me-auto">
+                <!-- 아래부터 어바웃버튼입니다. -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >ABOUT</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="../mem_about/intro.html">센터소개</a>
+                      <a class="dropdown-item" href="../mem_about/notice.html">공지사항</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="../mem_about/event.html">이벤트</a>
+                      <a class="dropdown-item" href="../mem_about/map.html">오시는길</a>
+                      <a class="dropdown-item" href="../mem_about/agreement.html">주변정보</a>
+                    </div>
+                </li>   
+              <!-- 아래부터 프로그램버튼입니다. -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">PROGRAM</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../mem_program/pt.html">PT</a>
+                    <a class="dropdown-item" href="../mem_program/pila.html">요가&필라테스</a>
+                    <a class="dropdown-item" href="../mem_program/spinning.html">스피닝</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../mem_program/timetable.html">시간표</a>
+                  </div>
+                </li>      
+                <!-- 아래부터 콘택트버튼입니다. -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CONTACT</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../mem_contact/ques.html">문의게시판</a>
+                    <a class="dropdown-item" href="../mem_contact/review.html">후기게시판</a>
+                  </div>
+                </li>       
+                <!-- 아래부터 리크루트 버튼입니다. -->
+                <li class="nav-item">
+                  <a class="nav-link" href="../mem_recruit/recruit.html" style="color: gold;">RECRUIT</a>
+                </li>
+              </ul>
+            </div>
+            <!-- 메뉴구현 끝입니다. -->
+                          
+            <!-- 로그인/ 회원가입 버튼 부분입니다. -->
+            <ul>
+              <span id="displayName" style="color: white;"></span>
+              
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary">마이페이지</button>
+                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./inbody.html">나의 인바디</a></li>
+                  <li><a class="dropdown-item" href="./mypage.html">계정 조회</a></li>
+                  <li><a class="dropdown-item" href="./membership.html">회원권 조회</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../mem_contact/review.html">후기 조회</a></li>
+ 
+                </ul>
+              </div>
+              <a class="btn btn-warning" id="member-logout" href="#" role="button">로그아웃</a> 
+            </ul>
+      </nav>
+      <!-- 네비게이션바 종료입니다. -->
+    </header>
+  <!-- 헤더부분 종료입니다. -->
+
+    <!-- 내용들어갈 부분입니다!!!!  -->
+    <section class="mainsection">
+      <!-- 마이페이지 클래스 container 영역 -->
+      <div class="container">
+        <section class="title">
+          <h5 style="text-align:center; letter-spacing : 6px"> MYPAGE</h5>
+          <hr style="border-top-width:thick; border-color:	#FFD700;" >
+          <div class="info" style="text-align: center;">
+            <span id="displayName1" style="color: black; "></span>
+          </div>
+        </section>
+
+        <div class="bs-callout bs-callout-danger">
+          <h3> 기본정보</h3>
+          <!-- 테이블 시작입니다.-->
+          <section class="content-form">
+            <div class="mb-3">
+              <label for="name" class="form-label">이름</label>
+              <input type="name" class="form-control" id="name" placeholder=""style="background-color: beige;" >
+            </div>
+            <div class="mb-3">
+              <label for="tel" class="form-label">연락처</label>
+              <input type="tel" class="form-control" id="tel" style="background-color: beige;" placeholder="(*안내 받으실 연락처를 기재해 주세요.)">
+            </div>
+            <div class="mb-3">
+              <label for="tel" class="form-label">e-mail</label>
+              <input type="tel" class="form-control" id="email" style="background-color: beige;" placeholder="">
+            </div>
+            <div class="mb-3">
+              <label for="tel" class="form-label">비밀번호</label>
+              <input type="tel" class="form-control" id="pw" style="background-color: beige;" placeholder="6자 이상 입력하세요">
+            </div>
+        </div>
+        <a href="#" class="btn btn-warning" id="send"> 제출 </a>
+          <br><br><br><br>
+      </div> <!-- div container 끝 -->
+    </section> <!-- mainsection 끝  -->
+
+<!-- footer 시작입니다.  -->
+    <footer class="card-footer text-warning bg-black">
+      NA TERRGYM COMPANY<br />
+      ⓒ 2013 Na TerrGym Company<br />
+      [NA TerrGym 강남점] Tel. 02-2566-1111 | 서울시 강남구 테헤란로 14길 6
+      남도빌딩<br />
+      [NA TerrGym 강북점] Tel. 02-2566-2222 | 서울시 남대문로 120 대일빌딩
+      2층,3층
+    </footer>
+
+
+
+  </body>
+</html>
+
+<script>
+
+  //////수정페이지 데이터 받아오기 
+  const db = firebase.firestore();
+  const storage = firebase.storage();
+  firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    console.log(user.uid);
+    console.log(user.email);
+    console.log(user.displayName);
+     ///////////mypage 데이터받아오기
+    $("#displayName").html(user.displayName + "님 접속중");
+    $("#displayName1").html(user.displayName + "님 MYPAGE 입니다");
+    db.collection('user').doc(user.uid). get().then((result)=> {
+      console.log(result.data());      
+      $('#name').val(result.data().name);
+      $('#tel').val(result.data().tel);
+      $('#email').val(result.data().email);
+      $('#pw').val(result.data().pw);
+      })
+
+
+    ///수정페이지 데이터넘기기 
+    $('#send').click(function(){
+      const edit = {
+          email : $('#email').val(),
+          pw : $('#pw').val(),
+          name : $('#name').val(),
+          tel : $('#tel').val(),
+          }
+      db.collection('user').doc(user.uid).update(edit).then((result) =>{
+          //성공후에 실행할 코드
+            window.location.href ='./mypage.html?id='+user.uid
+          }).catch((err)=>{
+            console.log(err);
+            alert('다시 입력해주시길 바랍니다.'); //잘못 되었다면 얼럿창. 에러처리
+          })
+})
+    ///탈퇴하기   ///여기다시보기
+    $("#delete").click(function(){
+
+    const cur_user = firebase.auth().currentUser;
+    cur_user.delete().then(() => {
+  
+}).catch((error) => {
+      console.log(error);
+      alert("탈퇴에 실패하였습니다");
+    });
+    db.collection('user').doc(user.uid).delete().then(()=>{
+      window.location.href='../main/main.html';
+    })  
+    //confirm modal  진짜 탈퇴할건가요? 네 아니오.
+    })//end of if
+  }
+  })//  e
+</script>
+  
+
+  
+          <!-- 
+          <table class="table">
+            <thead>
+              <tr>
+                <th colspan="4" style="background-color : #FFD700; text-align: center;">INFOMATION PAGE</th>
+            </thead>
+            <tbody class="detail_content" style="background-color: beige; text-align: center;">
+              <tr>
+                <td scope="row" class="table-active">해당지점</td>
+                <td class="branch">강남점</td>
+                <td class="table-active">이용상품</td>
+                <td class="product">P.T 1:1</td>
+              </tr>
+              <tr>
+                <td scope="row" class="table-active">이용기간</td>
+                <td class="period">22.08.16 ~ 22.12.15 (60회)</td>
+                <td class="table-active">남은기간</td>
+                <td class="restDate">120일 (59회)</td>
+              </tr>              
+            </tbody>
+          </table>
+        
+          <table class="table">
+            <thead>
+              <tr>
+                <th colspan="4" style="background-color : #FFD700; text-align: center;">INBODY 정보</th>
+            </thead>
+            <tbody class="detail_content" style="background-color: beige; text-align: center;">
+              <tr>
+                <td scope="row" class="table-active">DATE</td>
+                <td scope="row" class="table-active"> HEIGHT (cm)</td>
+                <td scope="row" class="table-active">WEHIGHT (kg)</td>                
+              </tr>      
+            </tbody>
+          </table>
+ -->

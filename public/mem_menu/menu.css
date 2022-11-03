@@ -1,0 +1,81 @@
+
+
+.logo {
+  width: auto;
+}
+
+.navbar {
+  z-index: 1;   /* 네비게이션바가 가장 위에 위치하여 배경뒤에 묻히지 않고 위에서열리게 */
+}
+
+/* 드롭박스 3개 */
+.nav-item.dropdown {
+  display: flex;
+  justify-content: space-between; /* 스페이스 공간 주는 역할*/
+  align-items: center; /* logo center */
+  padding: 10px 30px; /* 너무 붙어있어서 패딩으로 살짝 띄워줌*/
+  margin: 0px;
+}
+
+.nav-link.dropdown-toggle {
+  color: gold;
+}
+
+/* 리크루터 메뉴 */
+.nav-item {
+  display: flex;
+  justify-content: space-between; /* 스페이스 공간 주는 역할*/
+  align-items: center; /* logo center */
+  padding: 0px 30px; /* 너무 붙어있어서 패딩으로 살짝 띄워줌*/
+  margin: 0px;
+}
+
+
+section {
+  position: static; 
+}
+
+.bs-callout {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #eee;
+  border-image: none;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px 1px 1px 5px;
+  margin-bottom: 5px;
+  padding: 20px;
+}
+.bs-callout:last-child {
+  margin-bottom: 0px;
+}
+.bs-callout h4 {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.bs-callout-danger {
+  border-left-color: #FFD700;
+}
+
+.bs-callout-danger h4{
+  color: #FFD700;
+}
+
+/* footer 하단 고정 [S] */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+  text-align: center;
+  font-size: 6px;
+  color: blanchedalmond;
+  background: black;
+}
+
+/* footer 하단 고정 [E] */
+

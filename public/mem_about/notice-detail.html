@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./notice-detail.css" />
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<!-- 타이틀 시작입니다. -->
+    <title>상세페이지</title>
+  </head>
+  <body>   
+
+    <header>
+      <!-- 네비게이션바 시작입니다. -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black" style="margin: 0px; padding: 0px;">
+          <div class="container-fluid" >
+            <!-- 로고부분입니다  -->
+            <a href="../main/membermain.html">
+              <img class="logo" src="../images/logo.jpg" alt="로고" width="100px" height="100px">
+            </a>          
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+              <ul class="navbar-nav me-auto">
+                <!-- 아래부터 어바웃버튼입니다. -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >ABOUT</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="../mem_about/intro.html">센터소개</a>
+                      <a class="dropdown-item" href="../mem_about/notice.html">공지사항</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="../mem_about/event.html">이벤트</a>
+                      <a class="dropdown-item" href="../mem_about/map.html">오시는길</a>
+                      <a class="dropdown-item" href="../mem_about/agreement.html">주변정보</a>
+                    </div>
+                </li>   
+              <!-- 아래부터 프로그램버튼입니다. -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">PROGRAM</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../mem_program/pt.html">PT</a>
+                    <a class="dropdown-item" href="../mem_program/pila.html">요가&필라테스</a>
+                    <a class="dropdown-item" href="../mem_program/spinning.html">스피닝</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../mem_program/timetable.html">시간표</a>
+                  </div>
+                </li>      
+                <!-- 아래부터 콘택트버튼입니다. -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CONTACT</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../mem_contact/ques_write.html">문의게시판</a>
+                    <a class="dropdown-item" href="../mem_contact/review.html">후기게시판</a>
+                  </div>
+                </li>       
+                <!-- 아래부터 리크루트 버튼입니다. -->
+                <li class="nav-item">
+                  <a class="nav-link" href="../mem_recruit/recruit.html" style="color: gold;">RECRUIT</a>
+                </li>
+              </ul>
+            </div>
+            <!-- 메뉴구현 끝입니다. -->
+                          
+            <!-- 로그인/ 회원가입 버튼 부분입니다. -->
+             <!-- 로그인/ 회원가입 버튼 부분입니다. -->
+             <ul>
+              <span id="displayName" style="color: white;">displayName</span>
+              
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary">마이페이지</button>
+                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../mem_menu/inbody.html">나의 인바디</a></li>
+                  <li><a class="dropdown-item" href="../mem_menu/mypage.html">계정 조회</a></li>
+                  <li><a class="dropdown-item" href="../mem_menu/membership.html">회원권 조회</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../mem_contact/review.html">후기 작성</a></li>
+                </ul>
+              </div>
+              <a class="btn btn-warning" id="member-logout" href="#" role="button">로그아웃</a> 
+            </ul>
+      </nav>
+      <!-- 네비게이션바 종료입니다. -->
+    </header>
+  <!-- 헤더부분 종료입니다. -->
+
+    <!-- 상세페이지 내용들어갈 부분입니다!!!!  -->
+    <!-- 인증시작 -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDpbDj9hxz7rpZGLl-SY95w6U3xpfpP7io",
+authDomain: "nar--terrgym.firebaseapp.com",
+databaseURL: "https://nar--terrgym-default-rtdb.asia-southeast1.firebasedatabase.app",
+projectId: "nar--terrgym",
+storageBucket: "nar--terrgym.appspot.com",
+messagingSenderId: "32281889534",
+appId: "1:32281889534:web:f29fa1da8d794c01a7b3af"
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+<!-- 상세페이지 html 구조 -->
+
+<article>
+  <div class="container" role="main">			
+    <h3>글상세조회</h3>						
+    <hr />
+    <label>글제목 : </label>	
+    <span class="board_title"></span>		
+  </br>
+    <label>작성자 : </label>			
+    <span class="board_author"></span>	
+    <br/>
+    <label>작성일: </label>			
+    <span class="board_date"></span>	
+  </br>
+  <div class="bg-info rounded shadow-lg">
+    <label>내용 : </label>			
+    <div	div class="board_content">
+        <br />
+      </div>
+      <div style="margin-top : 25px">				
+      </div>	
+      </div>	
+      <hr />
+      <button type="button" class="btn btn-sm btn-primary" id="btnList" onclick="location.href='notice.html'">목록</button>			
+     <button type="button" class="btn btn-sm btn-dark" id="edit" onclick="location.href='notice-edit.html'" style="margin: 0px; display: none;">수정</button> 		
+     <button type="button" class="btn btn-sm btn-danger" id="btnDelete" onclick="location.href='#'" style="margin: 0px; display: none;">삭제</button> 		
+           </div>	
+          </div>			
+            </article>
+<!-- 아이디에 맞는 데이터 가져오기-->
+
+<script>
+
+const db = firebase.firestore();
+const storage = firebase.storage();
+
+let 쿼리스트링 = new URLSearchParams(window.location.search); //오브젝트로 바꿔줌
+
+//오브젝트로 가져온 쿼리스트링의 id 부분을 찾아준다
+//상세구현 페이지 붙이는 작업
+db.collection('boardList').doc(쿼리스트링.get('id')).get().then((result)=>{
+
+console.log(result.data());
+
+//각각의 id에서 리절트를 가지고 데이터의 목록을 뽑아 상수로 만들어 준다음에 근본없이 텍스트로 냅다 붙여버린다~~!! 성공!!!
+              const board_title = result.data().제목;
+              const board_author = result.data().작성자;
+              const board_date = result.data().작성일;
+              const board_content = result.data().내용;
+              $(".board_title").text(board_title);
+              $(".board_author").text(board_author);
+              $(".board_date").text(board_date);
+              $(".board_content").text(board_content);
+})
+
+//수정기능 제이쿼리 부분입니다.
+$('#edit').click(function(){
+  window.location.href = 'notice-edit.html?id='+ 쿼리스트링.get('id') //상세페이지와 똑같이 불러와야함.
+})
+
+//삭제부분 제이쿼리입니다.
+$('#btnDelete').click(function(){
+ // console.log("클릭성공");
+  db.collection('boardList').doc(쿼리스트링.get('id')).delete().then(()=>{
+   //저장소의 uid를 가져와서 삭제해주면 목록으로 돌아간다.
+    window.location.href = 'notice.html'
+
+  }).catch((error)=>{
+    alert('다시 입력해주시길 바랍니다.'); //잘못 되었다면 얼럿창. 에러처리
+  })
+}); 
+
+</script>
+
+    <!-- footer 시작입니다.  -->
+    <footer class="card-footer text-warning text-left bg-black">
+      NA TERRGYM COMPANY<br />
+      ⓒ 2013 Na TerrGym Company<br />
+      [NA TerrGym 강남점] Tel. 02-2566-1111 | 서울시 강남구 테헤란로 14길 6
+      남도빌딩<br />
+      [NA TerrGym 강북점] Tel. 02-2566-2222 | 서울시 남대문로 120 대일빌딩
+      2층,3층
+    </footer>
+    <script src="./notice.js"></script>
+  </body>
+</html>

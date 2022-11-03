@@ -1,0 +1,52 @@
+.logo {
+  width: auto;
+}
+
+.navbar {
+  z-index: 1; /* 네비게이션바가 가장 위에 위치하여 배경뒤에 묻히지 않고 위에서열리게 */
+}
+
+/* 드롭박스 3개 */
+.nav-item.dropdown {
+  display: flex;
+  justify-content: space-between; /* 스페이스 공간 주는 역할*/
+  align-items: center; /* logo center */
+  padding: 10px 30px; /* 너무 붙어있어서 패딩으로 살짝 띄워줌*/
+  margin: 0px;
+}
+
+.nav-link.dropdown-toggle {
+  color: gold;
+}
+
+/* 리크루터 메뉴 */
+.nav-item {
+  display: flex;
+  justify-content: space-between; /* 스페이스 공간 주는 역할*/
+  align-items: center; /* logo center */
+  padding: 0px 30px; /* 너무 붙어있어서 패딩으로 살짝 띄워줌*/
+  margin: 0px;
+}
+
+.title {
+  padding-top: 30px;
+}
+
+.mainsection {
+  position: relative;
+  height: 100vh;
+}
+.content {
+  font-size: 14px;
+}
+/* footer 하단 고정 [S] */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+  font-size: 6px;
+}
+
+/* footer 하단 고정 [E] */

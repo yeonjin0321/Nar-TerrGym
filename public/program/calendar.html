@@ -1,0 +1,44 @@
+    <html lang='en'>
+    <head>
+        <meta charset='utf-8' />
+        <link href='./fullcalendar/main.css' rel='stylesheet' />
+        <script src='./fullcalendar/main.js'></script>
+        <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            //plugins: [ googleCalendarPlugin ],
+        googleCalendarApiKey: 'AIzaSyBTJLRSZasZB6oUvz-bLcl4lqoCnHy7y1o',
+        events: {
+        googleCalendarId: 'q2tacamv8d6onj1rl6ip3u804g@group.calendar.google.com',
+        className: 'gcal-event' // an option!
+        }
+            });
+            calendar.render();
+        });
+        
+
+        </script>
+ <!-- fullcalendar -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.0/main.min.css">
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.0/main.min.js"></script>
+
+    </head>
+    <body>
+        
+        <div id='calendar'></div>
+        
+    </body>
+    </html>
+<!--
+let calendar = new Calendar(calendarEl, {
+    plugins: [ googleCalendarPlugin ],
+    googleCalendarApiKey: '<YOUR API KEY>',
+    events: {
+    googleCalendarId: 'abcd1234@group.calendar.google.com',
+      className: 'gcal-event' // an option!
+    }
+});
+-->

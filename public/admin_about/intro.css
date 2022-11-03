@@ -1,0 +1,81 @@
+.logo {
+  width: auto;
+}
+
+.navbar {
+  z-index: 1; /* 네비게이션바가 가장 위에 위치하여 배경뒤에 묻히지 않고 위에서열리게 */
+}
+
+/* 드롭박스 3개 */
+.nav-item.dropdown {
+  display: flex;
+  justify-content: space-between; /* 스페이스 공간 주는 역할*/
+  align-items: center; /* logo center */
+  padding: 10px 30px; /* 너무 붙어있어서 패딩으로 살짝 띄워줌*/
+  margin: 0px;
+}
+
+.nav-link.dropdown-toggle {
+  color: gold;
+}
+
+/* 리크루터 메뉴 */
+.nav-item {
+  display: flex;
+  justify-content: space-between; /* 스페이스 공간 주는 역할*/
+  align-items: center; /* logo center */
+  padding: 0px 30px; /* 너무 붙어있어서 패딩으로 살짝 띄워줌*/
+  margin: 0px;
+}
+
+section {
+  position: relative; /* 메인이랑 다르게 realative로 바꾸었더니 됩니다.*/
+  top: -50px;
+  padding-top: 0px; /* 섹션과 섹션사이 흰공간 이걸 0으로 두면 사라집니다. */
+  padding-bottom: 0px;
+}
+/* 슬라이더 관련 css */
+.intro > h4 {
+  border: 1px solid red;
+  size: 50%;
+}
+
+.col-sm-5.text-left {
+  text-align: left;
+}
+.center_logo {
+  size: calc(0%);
+}
+
+#sliderWrap {
+  width: 800px;
+  height: 300px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+#slider {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 2400px;
+}
+#slider > li {
+  float: left;
+  list-style: none;
+  width: 800px;
+}
+
+/* footer 하단 고정 [S] */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+  text-align: center;
+  font-size: 6px;
+  color: blanchedalmond;
+  background: black;
+}
+
+/* footer 하단 고정 [E] */

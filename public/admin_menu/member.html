@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./admin.css" />
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap" rel="stylesheet"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <title>Na--terrgym</title>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+    <script>
+      const firebaseConfig = {
+      apiKey: "AIzaSyDpbDj9hxz7rpZGLl-SY95w6U3xpfpP7io",
+      authDomain: "nar--terrgym.firebaseapp.com",
+      databaseURL: "https://nar--terrgym-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "nar--terrgym",
+      storageBucket: "nar--terrgym.appspot.com",
+      messagingSenderId: "32281889534",
+      appId: "1:32281889534:web:f29fa1da8d794c01a7b3af"
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script  defer src="./menu.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black" style="margin: 0px; padding: 0px;">
+          <div class="container-fluid" >
+            <!-- 로고부분입니다  -->
+            <a href="./membermain.html">
+              <img class="logo" src="../images/logo.jpg" alt="로고" width="100px" height="100px">
+            </a>          
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+              <ul class="navbar-nav me-auto">
+                <!-- 아래부터 어바웃버튼입니다. -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >ABOUT</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="../admin_about/intro.html">센터소개</a>
+                      <a class="dropdown-item" href="../admin_about/notice.html">공지사항</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="../admin_about/event.html">이벤트</a>
+                      <a class="dropdown-item" href="../admin_about/map.html">오시는길</a>
+                      <a class="dropdown-item" href="../admin_about/agreement.html">주변정보</a>
+                    </div>
+                </li>   
+              <!-- 아래부터 프로그램버튼입니다. -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">PROGRAM</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../admin_program/pt.html">PT</a>
+                    <a class="dropdown-item" href="../admin_program/pila.html">요가&필라테스</a>
+                    <a class="dropdown-item" href="../admin_program/spinning.html">스피닝</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../admin_program/timetable.html">시간표</a>
+                  </div>
+                </li>      
+                <!-- 아래부터 콘택트버튼입니다. -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CONTACT</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../admin_contact/ques.html">문의게시판</a>
+                    <a class="dropdown-item" href="../admin_contact/review.html">후기게시판</a>
+                  </div>
+                </li>       
+                <!-- 아래부터 리크루트 버튼입니다. -->
+                <li class="nav-item">
+                  <a class="nav-link" href="../admin_recruit/recruit.html" style="color: gold;">RECRUIT</a>
+                </li>
+              </ul>
+            </div>
+            <!-- 메뉴구현 끝입니다. -->
+                          
+            <!-- 로그인/ 회원가입 버튼 부분입니다. -->
+            <ul>
+              <span id="displayName" style="color: white;"></span>
+              <span id="afterName" style="color: white;">님 환영합니다:)</span>
+              
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary">관리자페이지</button>
+                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../admin_menu/member.html">회원 관리</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../admin_menu/trainerpage.html">강사 관리</a></li>
+                  <li><a class="dropdown-item" href="../admin_menu/memberplus.html">회원 등록</a></li>
+                </ul>
+              </div>
+              <a class="btn btn-warning" id="member-logout" href="#" role="button">로그아웃</a> 
+            </ul>
+      </nav>
+      <!-- 네비게이션바 종료입니다. -->
+    </header>
+  <!-- 헤더부분 종료입니다. -->
+    <!-- 내용들어갈 부분입니다!!!!  -->
+    <section class="mainsection">
+      <!-- 마이페이지 클래스 container 영역 -->
+      <div class="container">
+        <section class="title">
+          <h5 style="text-align:center; letter-spacing : 6px"> 회원관리</h5>
+          <hr style="border-top-width:thick; border-color:	#FFD700;" >
+          <div class="info" style="text-align: center;">
+            <h5>Na TerrGym 의 회원목록 입니다.</h5>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <select
+                class="form-select"
+                aria-label="분류선택"
+                name="gubun"
+                id="gubun"
+              >
+                <option defaultValue>분류선택</option>
+                <option value="지점명">지점명</option>
+                <option value="회원명">회원명</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <input
+                type="text"
+                name="keyword"
+                id="keyword"
+                class="form-control"
+                placeholder="검색어를 입력하세요"
+                aria-label="검색어를 입력하세요"
+                aria-describedby="btnSearch"
+              />
+            </div>
+            <div class="col-3">
+              <button class="btn btn-danger" id="btnSearch" onclick="searchList()">
+                검색
+              </button>
+            </div>
+          </div>
+          <hr />
+        </section>
+          <!-- 테이블 시작입니다.-->
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width:20%; background-color : #FFD700; text-align: center;">No</th>
+                <th style="width:20%; background-color : #FFD700; text-align: center;">지점명</th>
+                <th style="width:30%; background-color : #FFD700; text-align: center;">회원명</th>
+                <th style="width:30%; background-color : #FFD700; text-align: center;">가입일</th>
+            </thead>
+            <tbody class="managemem_content" style="background-color: beige; text-align: center;">
+              <!-- <tr>
+                <td>1</td>
+                <td>[강남점]</td>
+                <td>한아름</td>
+                <td>2022-08-08</td>
+                                <td>${time}</td> 밑에추가하기 
+              </tr>      --> 
+            </tbody>
+          </table>
+          <br><br><br><br>       
+      </div> <!-- div container 끝 -->
+      <hr />
+      <table align="center">
+        <tbody class="pagenation"></tbody>
+      </table>
+    </section> <!-- mainsection 끝  -->
+
+
+<!-- footer 시작입니다.  -->
+    <footer class="card-footer text-warning bg-black">
+      NA TERRGYM COMPANY<br />
+      ⓒ 2013 Na TerrGym Company<br />
+      [NA TerrGym 강남점] Tel. 02-2566-1111 | 서울시 강남구 테헤란로 14길 6
+      남도빌딩<br />
+      [NA TerrGym 강북점] Tel. 02-2566-2222 | 서울시 남대문로 120 대일빌딩
+      2층,3층
+    </footer>
+  </body>
+  <script>
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+    let num = 0;
+      db.collection('user').orderBy('date','desc').get().then((info)=>{
+        console.log(info);
+        info.forEach((doc)=> {
+          console.log(doc.data());
+        var d = doc.data().date.toDate();
+        var time = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate() + " " 
+                      +d.getHours() +":" + d.getMinutes()+" " 
+                      +"("+ "일월화수목금토".charAt(d.getUTCDay())+"요일)";
+          
+        const template = `
+              <tr>
+                <th scope="row">${++num}</th>
+                <td>
+                  ${doc.data().select}
+                </td>
+                <td>
+                  <a href="./member_view.html?id=${doc.id}" >
+                  ${doc.data().name}
+                  </a>
+                </td>
+                <td>${time}</td>
+
+              </tr>
+        `;
+        $(".managemem_content").append(template)
+      }) ///end of for each
+    })// end of db collection
+  </script>
+</html>
+
+<!--  search 구현 -->
+
+<script>
+  function searchList() {
+    const choice = $("#gubun option:selected").val()
+    const user = $("#keyword").val()
+    //alert("검색 ===> " + choice + ", " + user)
+
+    let num = 0 //페이지 순번 담음
+    let total = 0 //전체 레코드 수
+    let numPerPage = 2 // 한 페이지에 몇개씩 뿌릴건가
+    let nowPage = 0 // 현재 내가 바라보는 페이지
+    let params = new URLSearchParams(document.location.search)
+    nowPage = params.get("nowPage")
+    // 페이징 처리에 필요한 변수 선언 //
+
+    db.collection("user")
+      .where(choice, "==", user)
+      .get()
+      .then((snapshot) => {
+        total = snapshot.docs.length
+        if (total > 0) {
+          $(".managemem_content").text("")
+        }
+        /*    */
+        for (
+          let i = nowPage * numPerPage;
+          i < nowPage * numPerPage + numPerPage;
+          i++
+        ) {
+          if (total === i) break
+          num = i
+          const template = `
+          <tr>
+                <th scope="row">${++num}</th>
+                <td>
+                  ${snapshot.data().select}
+                </td>
+                <td>
+                  <a href="./member_view.html?id=${snapshot.id}" >
+                  ${snapshot.data().name}
+                  </a>
+                </td>
+
+              </tr>
+        `;
+        $(".managemem_content").append(template)
+        } //////// end of for
+
+        $(".pagenation").text("")
+        /* 페이지 네비게이션 처리 위치 */
+        const pagePath = "member.html"
+        const pb = new PageBar(numPerPage, total, nowPage, pagePath)
+        //console.log(pb.getPageBar()) class PageBar에서 생성되는 링크 출력해봄
+        $(".pagenation").append(pb.getPageBar()) 
+      }) ///////// end of callback
+  } // end of searchList
+</script>
