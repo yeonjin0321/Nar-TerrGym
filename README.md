@@ -24,28 +24,34 @@ html+js+css+firebase(nosql)
 💊 기능 💊<br/>
 1.로그인<br/>
 
-관리자 로그인 <br/>
+♥️ 관리자 로그인 <br/>
 ![관리자로그인](https://user-images.githubusercontent.com/103975034/199945511-caef4323-0644-443d-8ba8-53b0e66170cb.gif) 
 
-소셜로그인<br/>
+♥️ 소셜로그인<br/>
 ![소셜로그인](https://user-images.githubusercontent.com/103975034/199946403-7502c7b9-41af-4b8f-904e-60d530730feb.gif)
 
 
+2.공지사항<br/>
+
+♥️ CRUD<br/>
+![crud](https://user-images.githubusercontent.com/103975034/199948901-a390ff61-8d32-4500-8478-e3d3147e5298.gif)
+
+♥️ 검색 + 페이징<br/>
+![페이징검색](https://user-images.githubusercontent.com/103975034/199949283-6fe775ee-2641-468b-8f4c-3dd72f9ac377.gif)
 
 
+3.관리자 페이지<br/>
 
-2.공지사항  - CRUD + 검색 + 페이징<br/>
+♥️ 회원권 조회<br/>
+![회원권관리등록](https://user-images.githubusercontent.com/103975034/199950382-2ab7916b-ec80-46d4-b877-678edab6bf1a.gif)
 
 
-3. 관리자 페이지 - 회원권 조회<br/>
+4.나터짐 소개 및 api사용<br/>
 
-
-4. 나터짐 소개 및 api사용<br/>
-
-나터짐소개<br/>
+♥️ 나터짐소개<br/>
 ![나터짐소개](https://user-images.githubusercontent.com/103975034/199947781-6624ebf0-aa26-4d29-8074-2d4eb44c8938.gif)
 
-카카오api사용<br/>
+♥️ 카카오api사용<br/>
 ![kakaoapi](https://user-images.githubusercontent.com/103975034/199948219-d5607848-6d7c-4c0b-a804-fc396ddc1283.gif)
 
 
