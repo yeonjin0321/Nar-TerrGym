@@ -5,6 +5,7 @@ html+js+css+firebase(nosql)
 
 💻 주제 💻<br/>
 헬스장 관리 사이트를 통한 회원관리 및 사이트 홍보
+![image](https://user-images.githubusercontent.com/103975034/199944205-d803a38c-1ab0-43c1-a1c6-fa34ea0071a4.png)
 
 📁 사용툴 📁<br/>
 
@@ -21,7 +22,33 @@ html+js+css+firebase(nosql)
 
 
 💊 기능 💊<br/>
-DB - CRUD<br/>
-로그인
-회원가입
+1.로그인<br/>
+
+관리자 로그인 <br/>
+![관리자로그인](https://user-images.githubusercontent.com/103975034/199945511-caef4323-0644-443d-8ba8-53b0e66170cb.gif) 
+
+소셜로그인<br/>
+![소셜로그인](https://user-images.githubusercontent.com/103975034/199946403-7502c7b9-41af-4b8f-904e-60d530730feb.gif)
+
+
+
+
+
+2.공지사항  - CRUD + 검색 + 페이징<br/>
+
+
+3. 관리자 페이지 - 회원권 조회<br/>
+
+
+4. 나터짐 소개 및 api사용<br/>
+
+나터짐소개<br/>
+![나터짐소개](https://user-images.githubusercontent.com/103975034/199947781-6624ebf0-aa26-4d29-8074-2d4eb44c8938.gif)
+
+카카오api사용<br/>
+![kakaoapi](https://user-images.githubusercontent.com/103975034/199948219-d5607848-6d7c-4c0b-a804-fc396ddc1283.gif)
+
+
+
+
 
