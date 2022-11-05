@@ -17,10 +17,6 @@ html+js+css+firebase(nosql)
 
 ![나터짐 유스케이스1](https://user-images.githubusercontent.com/103975034/199938563-5eb28ada-94e0-4516-a5ca-140c8a242810.png)
 
-🔥화면정의서🔥<br/>
-<img width="300" alt="화면정의서 QR" src="https://user-images.githubusercontent.com/103975034/199940950-b1c96f2e-4b0f-4521-bfa3-a0921e1504c4.png">
-
-
 💊 기능 💊<br/>
 1.로그인<br/>
 
